@@ -1,0 +1,10 @@
+<h1>Celebrities</h1>
+
+<a class="btn btn-primary mb-3" href="/celebrities/create">New Celebrity</a>
+<a class="btn btn-primary mb-3" href="/">Back index</a>
+
+<ul>
+  {{#each celebrities as |celebrity| }}
+    <li><a href="/celebrities/{{ celebrity._id }}"> {{ celebrity.name }} </a></li>
+  {{/each }}
+</ul>

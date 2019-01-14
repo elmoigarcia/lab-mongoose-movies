@@ -1,0 +1,34 @@
+<h1>Celebrities</h1>
+
+<a class="btn btn-primary mb-3" href="/celebrities/create">New Celebrity</a>
+<a class="btn btn-primary mb-3" href="/celebrities">Back list of celebrities</a>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th></th>
+      <th>Occupation</th>
+      <th>Phrase</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+      <tr>
+        <td>{{ celebrity.name }}</td>
+        <td>
+          <form action="/celebrities/{{celebrity._id}}/edit">
+            <button type="submit">Edit</button>
+          </form>
+        </td> 
+        <td>{{ celebrity.occupation }}</td>
+        <td>{{ celebrity.catchPhrase }}</td>
+        <td>
+          <form action="/celebrities/{{celebrity._id}}/delete" method="post">
+            <button type="submit">Delete</button>
+          </form>
+        </td> 
+      </tr>
+  </tbody>
+</table>

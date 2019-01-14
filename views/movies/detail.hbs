@@ -1,0 +1,38 @@
+<h1>Movies</h1>
+
+<a class="btn btn-primary mb-3" href="/movies/create">New Movie</a>
+<a class="btn btn-primary mb-3" href="/movies">Back list of movies</a>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th></th>
+      <th>Genre</th>
+      <th>Plot</th>
+      <th>Celebrity</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+      <tr>
+        <td>{{ movie.title }}</td>
+         <td>
+          <form action="/movies/{{movie._id}}/edit">
+            <button type="submit">Edit</button>
+          </form>
+        </td> 
+        <td>{{ movie.genre }}</td>
+        <td>{{ movie.plot  }}</td>
+        <td>
+          <a href="/celebrities/{{movie.celebrity._id}}">{{celebrity.name}}</a>
+        </td>
+        <td>
+          <form action="/movies/{{movie._id}}/delete" method="post">
+            <button type="submit">Delete</button>
+          </form>
+        </td>
+      </tr>
+  </tbody>
+</table>

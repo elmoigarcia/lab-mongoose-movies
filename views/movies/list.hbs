@@ -1,0 +1,10 @@
+<h1>Movies</h1>
+
+<a class="btn btn-primary mb-3" href="/movies/create">New Movie</a>
+<a class="btn btn-primary mb-3" href="/">Back index</a>
+
+<ul>
+  {{#each movies as |movie| }}
+    <li><a href="/movies/{{ movie._id }}"> {{ movie.title }} </a></li>
+  {{/each }}
+</ul>
