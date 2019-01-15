@@ -26,7 +26,7 @@
         <td>{{ movie.genre }}</td>
         <td>{{ movie.plot  }}</td>
         <td>
-          <a href="/celebrities/{{movie.celebrity._id}}">{{celebrity.name}}</a>
+          <a href="/celebrities/{{movie.celebrity.id}}">{{movie.celebrity.name}}</a>
         </td>
         <td>
           <form action="/movies/{{movie._id}}/delete" method="post">

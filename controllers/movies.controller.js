@@ -4,13 +4,12 @@ const Celebrity = require('../models/celebrity.model');
 module.exports.list = (req, res, next) => {
   Movie.find()
     .populate('celebrity')
-    .then( movies => res.render('movies/list', { movies }))
+    .then(movies => res.render('movies/list', { movies }))
     .catch(err => next(err))
 }
 
 module.exports.create = (req, res, next) => {
-  Celebrity.find()
-    .then(celebrities => res.render('movies/form', { movie: new Movie(), celebrities }));
+  res.render('movies/form');
 }
 
 module.exports.doCreate = (req, res, next) => {
@@ -45,11 +44,9 @@ module.exports.doEdit = (req, res, next) => {
 
 module.exports.get = (req, res, next) => {
     Movie.findById(req.params.id)
-      .then(movie => {
-  
-        Celebrity.findById(movie.celebrity)
-          .then((celebrity) => res.render('movies/detail', { movie, celebrity }))
-      });
+      .populate('celebrity')
+      .then(movie => { res.render('movies/detail', { movie })
+       });
   }
 
 module.exports.delete = (req, res, next) => {
